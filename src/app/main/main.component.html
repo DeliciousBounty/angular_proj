@@ -1,0 +1,21 @@
+<table id="table" border="2" *ngIf="choice">
+    <tr>
+        <td>flag</td>
+        <td>Country name</td>
+        <td>capital</td>
+        <td>population</td>
+        <td>nativeName</td>
+       </tr>
+       <tr *ngFor="let c of countryList">
+           <td>
+              <!--<input (click)="saveCountry($event.target.value)">--> <img src={{c.flag}} width="80px" height="50px">
+           </td>
+           <td>{{c.name}}</td>
+           <td>{{c.capital}}</td>
+           <td>{{c.population}}</td>
+           <td>{{c.nativeName}}</td>
+       </tr>
+       
+
+</table>
+
