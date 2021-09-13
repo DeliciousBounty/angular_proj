@@ -1,4 +1,13 @@
-<table id="table" border="2" *ngIf="choice">
+<H2  style=" background-color: aquamarine;margin-right: auto;margin-left: auto;text-align: center;
+width: 100%;" *ngIf="!choice">Welcome to earth Countries Website!</H2>
+
+
+<div *ngIf="choice">
+ <span style="margin-left: 450px;">  
+    <input  #test type="text" id="myInput" placeholder="Search for countryy.." (keyup)="myFunction(test.value)" [value]="coutryname" />
+  <button *ngIf="!flag" (click)="reset();test.value=''">cancel</button> 
+</span>
+<table id="table" border="2" *ngIf="flag" >
     <tr>
         <td>flag</td>
         <td>Country name</td>
@@ -8,14 +17,38 @@
        </tr>
        <tr *ngFor="let c of countryList">
            <td>
-              <!--<input (click)="saveCountry($event.target.value)">--> <img src={{c.flag}} width="80px" height="50px">
+               <img src={{c.flag}} width="80px" height="50px">
            </td>
            <td>{{c.name}}</td>
            <td>{{c.capital}}</td>
            <td>{{c.population}}</td>
            <td>{{c.nativeName}}</td>
        </tr>
-       
+
 
 </table>
+  
+</div>
+<div *ngIf="result.length>= 1">
+    <table id="table" border="2" >
+        <tr>
+            <td>flag</td>
+            <td>Country name</td>
+            <td>capital</td>
+            <td>population</td>
+            <td>nativeName</td>
+           </tr>
+           <tr *ngFor="let c of result">
+               <td>
+                   <img src={{c.flag}} width="80px" height="50px">
+               </td>
+               <td>{{c.name}}</td>
+               <td>{{c.capital}}</td>
+               <td>{{c.population}}</td>
+               <td>{{c.nativeName}}</td>
+           </tr>
+    
+    
+    </table>
 
+</div>
